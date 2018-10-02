@@ -29,6 +29,14 @@
         <div class="pcoded-wrapper">
           <%= render partial: 'partials/sidebar' %>
           <div class="pcoded-content">
+            <% if flash[:notice] %>
+            <div class="alert alert-success border-success">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <i class="icofont icofont-close-line-circled"></i>
+              </button>
+              <strong><%= flash[:notice].to_s %></strong>
+            </div>
+            <% end %>
             <%= yield %>
           </div>
 
