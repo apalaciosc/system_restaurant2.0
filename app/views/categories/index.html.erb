@@ -1,0 +1,90 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <div class="page-block">
+    <div class="row align-items-center">
+      <div class="col-md-8">
+        <div class="page-header-title">
+          <h4 class="m-b-10">Productos</h4>
+        </div>
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item">
+            <%= link_to root_path do %>
+            <i class="feather icon-home"></i>
+            <% end %>
+          </li>
+          <li class="breadcrumb-item"><%= link_to 'Categorias', categories_path %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pcoded-inner-content">
+  <div class="main-body">
+    <div class="page-wrapper">
+      <div class="page-body">
+        <div class="row">
+          <% @categories.each do |category| %>
+          <div class="col-lg-3 col-md-6">
+            <div class="card">
+              <div class="card-block">
+                <div class="row align-items-center">
+                  <div class="col-8">
+                    <h4 class="text-c-green"><%= category.name %></h4>
+                  </div>
+                  <div class="col-4 text-right">
+                    <%= link_to edit_category_path(category) do %>
+                    <i class="feather icon-file-text f-28"></i>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer bg-c-green">
+                <div class="row align-items-center">
+                  <div class="col-9">
+                    <p class="text-white m-b-0"></p>
+                  </div>
+                  <div class="col-3 text-right">
+                    <%= link_to  category, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                    <i class="fa fa-trash"></i>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 
+
+<h1>Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+    <tr>
+      <td><%= category.name %></td>
+      <td><%= link_to 'Show', category %></td>
+      <td><%= link_to 'Edit', edit_category_path(category) %></td>
+      <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Category', new_category_path %>
+ -->
